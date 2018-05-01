@@ -1,5 +1,0 @@
----
-# handlers file for site_lamp
-- name: Redemarrage de Apache
-  service: name=httpd state=restarted
-
