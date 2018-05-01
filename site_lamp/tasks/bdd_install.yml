@@ -1,0 +1,9 @@
+---
+- name: Installation de MariaDB
+  yum: name={{item}} state=present
+  with_items:
+    - mariadb-server 
+    - mariadb
+    - MySQL-python
+- name: Démarrage de MariaDB
+  service: name=mariadb state=started enabled=yes

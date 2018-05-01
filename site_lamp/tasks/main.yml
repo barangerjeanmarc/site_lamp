@@ -1,0 +1,5 @@
+---
+# tasks file for site_lamp
+- include_tasks: bdd_install.yml
+- include_tasks: bdd_php.yml
+- include_tasks: bdd_manip.yml

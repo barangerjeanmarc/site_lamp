@@ -1,0 +1,15 @@
+---
+- name: Installation PHP
+  yum: name=php state=present
+  notify:
+    - Redemarrage de Apache
+- name: Installation extensions PHP
+  yum: name={{item}} state=present
+  with_items:
+    - php-pdo
+    - php-mysql
+    - php-soap
+    - php-gd
+    - php-pear-MDB2-Driver-mysqli
+  notify:
+    - Redemarrage de Apache
