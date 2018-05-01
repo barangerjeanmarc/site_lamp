@@ -1,0 +1,3 @@
+- src: https://github.com/barangerjeanmarc/site_lamp.git
+  version: master
+  name: site_lamp
