@@ -10,6 +10,5 @@
     - php-mysql
     - php-soap
     - php-gd
-    - php-pear-MDB2-Driver-mysqli
   notify:
     - Redemarrage de Apache
