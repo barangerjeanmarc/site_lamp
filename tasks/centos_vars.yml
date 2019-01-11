@@ -1,0 +1,7 @@
+---
+service_apache: httpd
+liste_package_mariadb:
+  - mariadb-server
+  - mariadb
+  - MySQL-python
+...
