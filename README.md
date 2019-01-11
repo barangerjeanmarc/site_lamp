@@ -2,11 +2,12 @@ site_lamp
 =========
 
 Un role pour un site LAMP.
+Il a été créé pour un besoin spécifique.
 
 Requirements
 ------------
 
-Il fonctionne sur CentOS. Il est necessaire d avoir Apache d installe.
+Il fonctionne sur CentOS et Debian. Il est necessaire d avoir Apache d installé.
 
 Role Variables
 --------------
@@ -16,7 +17,7 @@ Les variables ne sont pas a modifier.
 Dependencies
 ------------
 
-Pas de dependances.
+Pas de dependance.
 
 Example Playbook
 ---------------
