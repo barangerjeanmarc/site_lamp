@@ -1,2 +1,9 @@
 ---
 # defaults file for site_lamp
+debian:
+    version: stretch
+mariadb:
+    gpg_key_id: F1656F24C74CD1D8
+    series_version: '10.2'
+    mirror: ftp.igh.cnrs.fr/pub
+...
