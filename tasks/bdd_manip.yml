@@ -1,18 +1,24 @@
 ---
-- name: Create Application Database
-  mysql_db: name={{dbname}} state=present
+- name: Créer la base de données
+  mysql_db:
+    name: "{{dbname}}"
+    state: present
 
-- name: Create Application DB User
+- name: Créer l'utilisateur pour la base de données
   mysql_user: name={{dbuser}} password={{upassword}}
           priv=*.*:ALL host='%' state=present
 
-- name: Copy database over
-  copy: src=annuaire.sql dest=/tmp/annuaire.sql
+- name: Copier le fichier annuaire
+  copy:
+    src: annuaire.sql
+    dest: /tmp/annuaire.sql
 
-- name: Import data
+- name: Importer les données
   mysql_db: name=annuairedb state=import target=/tmp/annuaire.sql
 
-- name: Copy PHP page
-  copy: src=page.php dest=/var/www/html/page.php
-  notify:
-    - Redemarrage de Apache
+- name: Copier la page PHP
+  copy:
+    src: page.php
+    dest: /var/www/html/page.php
+  notify: Redemarrer Apache
+...
