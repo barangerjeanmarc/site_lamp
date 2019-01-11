@@ -3,3 +3,4 @@
 dbuser: "root"
 dbname: "annuairedb"
 upassword: "usersecret"
+...
