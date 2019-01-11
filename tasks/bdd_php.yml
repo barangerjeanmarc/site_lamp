@@ -1,14 +1,13 @@
 ---
-- name: Installation PHP
-  yum: name=php state=present
+- name: Installation de PHP et des extensions
+  package:
+    name:
+      - php
+      - php-pdo
+      - php-mysql
+      - php-soap
+      - php-gd
+    state: present
   notify:
-    - Redemarrage de Apache
-- name: Installation extensions PHP
-  yum: name={{item}} state=present
-  with_items:
-    - php-pdo
-    - php-mysql
-    - php-soap
-    - php-gd
-  notify:
-    - Redemarrage de Apache
+    - Redemarrer Apache
+...
