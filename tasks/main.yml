@@ -7,12 +7,12 @@
   include_vars: centos_vars.yml
   when: ansible_distribution|lower == 'centos'
 - name: Installer MariaDB
-  include_tasks: bdd_install.yml
+  import_tasks: bdd_install.yml
   notify: Redemarrer Apache
 - name: Installer base de données PHP
-  include_tasks: bdd_php.yml
+  import_tasks: bdd_php.yml
   notify: Redemarrer Apache
 - name: Injecter la base de donnees
-  include_tasks: bdd_manip.yml
+  import_tasks: bdd_manip.yml
   notify: Redemarrer Apache
 ...
