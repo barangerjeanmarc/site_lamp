@@ -1,6 +1,5 @@
 site_lamp
 =========
-<br>
 Un role pour un site LAMP.
 Il a été créé pour un besoin spécifique.
 <br>
