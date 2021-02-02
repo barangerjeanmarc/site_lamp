@@ -7,7 +7,6 @@ Ce role n a d intéret que dans le cadre d une formation.
 De nombreux éléments sont critiquables. 
 L'objectif est de discuter à l'amélioration de ce role et du projet auquel il s'intègre.
 
-
 Requirements
 ------------
 
