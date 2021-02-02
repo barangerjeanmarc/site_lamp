@@ -14,10 +14,10 @@
     dest: /tmp/annuaire.sql
 
 - name: Importer les données
-  mysql_db: name=annuairedb state=import target=/tmp/annuaire.sql
+  mysql_db: name={{dbname}} state=import target=/tmp/annuaire.sql
 
 - name: Copier la page PHP
-  copy:
+  template:
     src: page.php
     dest: /var/www/html/page.php
   notify: Redemarrer Apache

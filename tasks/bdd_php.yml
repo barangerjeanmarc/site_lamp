@@ -1,13 +1,21 @@
 ---
 - name: Installation de PHP et des extensions
   package:
-    name:
-      - php
-      - php-pdo
-      - php-mysql
-      - php-soap
-      - php-gd
+    name: "{{liste_package_php}}"
     state: present
-  notify:
-    - Redemarrer Apache
+
+- name: Redemarrer Apache
+  service:
+    name: "{{ service_apache }}"
+    state: restarted
+
+#- name: Installation de PHP et des extensions
+#  package:
+#    name:
+#      - php
+#      - php-pdo
+#      - php-mysql
+#      - php-soap
+#      - php-gd
+#    state: present
 ...
