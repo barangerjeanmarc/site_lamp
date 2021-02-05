@@ -1,0 +1,13 @@
+---
+- name: Installation de PHP et des extensions
+  package:
+    name:
+      - php
+      - php-pdo
+      - php-mysql
+      - php-soap
+      - php-gd
+    state: present
+  notify:
+    - Redemarrer Apache
+...
