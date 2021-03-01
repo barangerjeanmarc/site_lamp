@@ -1,0 +1,14 @@
+---
+# handlers file for site_lamp
+- name: Redemarrer Apache
+  service:
+    name: "{{ service_apache }}"
+    state: restarted
+    enabled: true
+
+- name: Redemarrer MariaDB
+  service:
+    name: mariadb
+    state: restarted
+    enabled: true
+...
