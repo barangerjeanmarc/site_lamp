@@ -1,6 +1,6 @@
 ---
 # vars file for site_lamp
-dbuser: "root"
+dbuser: "user1"
 dbname: "annuairedb"
 upassword: "usersecret"
 ...
