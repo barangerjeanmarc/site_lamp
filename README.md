@@ -1,14 +1,18 @@
 site_lamp
 =========
-
-Un role pour un site LAMP.<br>
-Il a été créé pour un besoin spécifique.<br>
+<br>
+Un role pour un site LAMP.
+Il a été créé pour un besoin spécifique.
+<br>
 Ce role n a d intéret que dans le cadre d une formation.
+De nombreux éléments sont critiquables. 
+L'objectif est de discuter à l'amélioration de ce role et du projet auqul il s'intègre.
+
 
 Requirements
 ------------
 
-Il fonctionne sur CentOS et Debian. Il est necessaire d avoir Apache d installé.
+Il fonctionne sur CentOS et Debian. Il est necessaire d avoir Apache d'installé.
 
 Role Variables
 --------------
