@@ -1,0 +1,13 @@
+---
+service_apache: httpd
+liste_package_mariadb:
+  - mariadb-server
+  - mariadb
+  - python3-PyMySQL
+liste_package_php:
+  - php
+  - php-mysqlnd
+  - php-opcache
+  - php-gd
+  - php-curl
+...
