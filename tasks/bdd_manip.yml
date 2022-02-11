@@ -6,7 +6,8 @@
 
 - name: Créer l'utilisateur pour la base de données
   mysql_user: name={{dbuser}} password={{upassword}}
-          priv=*.*:ALL host='%' state=present
+          priv=*.*:ALL host='localhost' state=present
+  no_log: yes 
 
 - name: Copier le fichier annuaire
   copy:

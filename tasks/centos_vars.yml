@@ -3,7 +3,7 @@ service_apache: httpd
 liste_package_mariadb:
   - mariadb-server
   - mariadb
-  - python3-PyMySQL
+  - MySQL-python
 liste_package_php:
   - php
   - php-mysqlnd
