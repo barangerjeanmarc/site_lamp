@@ -7,7 +7,6 @@ liste_package_mariadb:
 liste_package_php:
   - php
   - php-mysqlnd
-  - php-opcache
   - php-gd
   - php-curl
 ...
