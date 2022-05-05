@@ -12,7 +12,7 @@ L'objectif est de discuter à l'amélioration de ce role et du projet auquel il 
 Requirements
 ------------
 
-Il fonctionne sur CentOS et Debian. Il est necessaire d avoir Apache d'installé.
+Il fonctionne sur CentOS, Debian et Ubuntu. Il est nécessaire d'avoir Apache d'installé.
 
 Role Variables
 --------------
@@ -22,7 +22,7 @@ Les variables ne sont pas à modifier.
 Dependencies
 ------------
 
-Pas de dependance.
+Pas de dépendance.
 
 Example Playbook
 ---------------
