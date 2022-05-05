@@ -1,0 +1,21 @@
+---
+# tasks file for site_lamp
+- name: Inclure les variables ubuntu
+  include_vars: ubuntu_vars.yml
+  when: ansible_distribution|lower == 'ubuntu'
+- name: Inclure les variables debian
+  include_vars: debian_vars.yml
+  when: ansible_distribution|lower == 'debian'
+- name: Inclure les variables centos
+  include_vars: centos_vars.yml
+  when: ansible_distribution|lower == 'centos'
+- name: Installer MariaDB
+  import_tasks: bdd_install.yml
+  notify: Redemarrer Apache
+- name: Installer base de données PHP
+  import_tasks: bdd_php.yml
+  notify: Redemarrer Apache
+- name: Injecter la base de donnees
+  import_tasks: bdd_manip.yml
+  notify: Redemarrer Apache
+...

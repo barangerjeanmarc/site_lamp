@@ -1,0 +1,25 @@
+---
+#- block:
+#    - name: Installer la clef GPG pour les serveurs Debian
+#      apt_key:
+#        url: http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x{{ mariadb.gpg_key_id }}
+#        state: present
+#
+#    - name: Ajouter le dépôt MariaDB pour les serveurs Debian
+#      apt_repository:
+#        repo: deb http://{{ mariadb.mirror }}/mariadb/repo/{{ mariadb.series_version }}/debian {{ debian.version }} main
+#        state: present
+#  when: ansible_distribution|lower == 'debian'
+
+- name: Installer MariaDB
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ liste_package_mariadb }}"
+
+- name: Démarrer MariaDB
+  service:
+    name: mariadb
+    state: started
+    enabled: true
+...

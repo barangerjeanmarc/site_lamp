@@ -1,0 +1,11 @@
+---
+service_apache: apache2
+liste_package_mariadb:
+  - mariadb-server
+  - mariadb-client
+  - python3-pymysql
+liste_package_php:
+  - php
+  - libapache2-mod-php
+  - php-mysql
+...

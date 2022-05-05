@@ -1,0 +1,51 @@
+---
+
+- name: Créer l'utilisateur de la base de données pour CentOS ou Debian
+  mysql_user: 
+    name: "{{dbuser}}" 
+    password: "{{upassword}}"
+    priv: '*.*:ALL' 
+    host: 'localhost' 
+    state: present
+  no_log: yes 
+  when: ansible_distribution|lower == 'centos' or ansible_distribution|lower == 'debian'
+
+- name: Créer l'utilisateur pour la base de données pour Ubuntu
+  mysql_user: 
+    name: "{{dbuser}}" 
+    password: "{{upassword}}"
+    priv: '*.*:ALL' 
+    host: 'localhost' 
+    state: present
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+  no_log: yes 
+  when: ansible_distribution|lower == 'ubuntu'
+
+- name: Créer la base de données
+  mysql_db:
+    name: "{{dbname}}"
+    login_user: "{{ dbuser }}"
+    login_password: "{{ upassword }}"
+    state: present
+  no_log: yes 
+
+- name: Copier le fichier annuaire
+  copy:
+    src: annuaire.sql
+    dest: /tmp/annuaire.sql
+
+- name: Importer les données
+  mysql_db: 
+    name: "{{dbname}}" 
+    state: "import" 
+    target: "/tmp/annuaire.sql"
+    login_user: "{{ dbuser }}"
+    login_password: "{{ upassword }}"
+  no_log: yes 
+
+- name: Copier la page PHP
+  template:
+    src: page.php
+    dest: /var/www/html/page.php
+  notify: Redemarrer Apache
+...
