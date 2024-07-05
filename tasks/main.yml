@@ -9,6 +9,9 @@
 - name: Inclure les variables centos
   include_vars: centos_vars.yml
   when: ansible_distribution|lower == 'centos'
+- name: Inclure les variables rocky
+  include_vars: rocky_vars.yml
+  when: ansible_distribution|lower == 'rocky'
 - name: Installer MariaDB
   import_tasks: bdd_install.yml
   notify: Redemarrer Apache

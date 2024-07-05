@@ -1,14 +1,15 @@
 ---
 
-- name: Créer l'utilisateur de la base de données pour CentOS ou Debian
+- name: Créer l'utilisateur de la base de données pour CentOS ou Rocky ou Debian
   mysql_user: 
     name: "{{dbuser}}" 
     password: "{{upassword}}"
     priv: '*.*:ALL' 
     host: 'localhost' 
     state: present
-  no_log: yes 
-  when: ansible_distribution|lower == 'centos' or ansible_distribution|lower == 'debian'
+  when: ansible_distribution|lower == 'centos' or 
+        ansible_distribution|lower == 'rocky'  or 
+        ansible_distribution|lower == 'debian'
 
 - name: Créer l'utilisateur pour la base de données pour Ubuntu
   mysql_user: 
