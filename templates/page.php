@@ -6,7 +6,6 @@
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname={{dbname}};charset=utf8', '{{dbuser}}', '{{upassword}}');
-
 }
 catch(Exception $e)
 {
