@@ -1,5 +1,6 @@
 ---
 service_apache: apache2
+mariadb_socket: /var/run/mysqld/mysqld.sock
 liste_package_mariadb:
   - mariadb-server
   - mariadb-client
