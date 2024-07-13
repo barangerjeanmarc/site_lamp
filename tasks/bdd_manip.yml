@@ -1,5 +1,4 @@
 ---
---
 - name: Créer l'utilisateur pour la base de données
   mysql_user:
     name: "{{dbuser}}"
