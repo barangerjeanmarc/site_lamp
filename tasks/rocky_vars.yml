@@ -4,7 +4,6 @@ liste_package_mariadb:
   - mariadb-server
   - mariadb
   - python3-devel
-  -  mysql-devel
   - pkgconfig
   - python3-PyMySQL
 liste_package_php:
