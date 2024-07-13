@@ -1,26 +1,15 @@
 ---
-
-- name: Créer l'utilisateur de la base de données pour CentOS ou Rocky ou Debian
-  mysql_user: 
-    name: "{{dbuser}}" 
+--
+- name: Créer l'utilisateur pour la base de données
+  mysql_user:
+    name: "{{dbuser}}"
     password: "{{upassword}}"
-    priv: '*.*:ALL' 
-    host: 'localhost' 
+    priv: '*.*:ALL'
+    host: 'localhost'
     state: present
-  when: ansible_distribution|lower == 'centos' or 
-        ansible_distribution|lower == 'rocky'  or 
-        ansible_distribution|lower == 'debian'
-
-- name: Créer l'utilisateur pour la base de données pour Ubuntu
-  mysql_user: 
-    name: "{{dbuser}}" 
-    password: "{{upassword}}"
-    priv: '*.*:ALL' 
-    host: 'localhost' 
-    state: present
-    login_unix_socket: "/var/run/mysqld/mysqld.sock"
-  no_log: yes 
-  when: ansible_distribution|lower == 'ubuntu'
+    login_unix_socket: "{{mariadb_socket}}"
+    column_case_sensitive: false
+  no_log: yes
 
 - name: Créer la base de données
   mysql_db:
@@ -28,7 +17,7 @@
     login_user: "{{ dbuser }}"
     login_password: "{{ upassword }}"
     state: present
-  no_log: yes 
+  no_log: yes
 
 - name: Copier le fichier annuaire
   copy:
