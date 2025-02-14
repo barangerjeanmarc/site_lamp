@@ -1,5 +1,4 @@
 ---
-# handlers file for site_lamp
 - name: Redemarrer Apache
   ansible.builtin.service:
     name: "{{ service_apache }}"
