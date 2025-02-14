@@ -1,0 +1,23 @@
+---
+service_apache: httpd
+mariadb_socket: /var/lib/mysql/mysql.sock
+liste_package_mariadb:
+  - mariadb-server
+  - mariadb
+  - python3-devel
+  - pkgconfig
+  - python3-PyMySQL
+liste_package_php:
+  - php-common
+  - php-gmp
+  - php-fpm
+  - php-curl
+  - php-intl
+  - php-pdo
+  - php-mbstring
+  - php-gd
+  - php-xml
+  - php-cli
+  - php-zip
+  - php-mysqli
+...
