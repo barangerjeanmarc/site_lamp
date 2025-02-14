@@ -9,13 +9,13 @@
     name: "{{ service_apache }}"
     state: restarted
 
- #- name: Installation de PHP et des extensions
- #  ansible.builtin.package:
- #    name:
- #      - php
- #      - php-pdo
- #      - php-mysql
- #      - php-soap
- #      - php-gd
- #    state: present
+ # - name: Installation de PHP et des extensions
+ #   ansible.builtin.package:
+ #     name:
+ #       - php
+ #       - php-pdo
+ #       - php-mysql
+ #       - php-soap
+ #       - php-gd
+ #     state: present
 ...

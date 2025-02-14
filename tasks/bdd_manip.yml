@@ -8,7 +8,7 @@
     state: present
     login_unix_socket: "{{ mariadb_socket }}"
     column_case_sensitive: false
-  no_log: yes
+  no_log: true
 
 - name: Créer la base de données
   community.mysql.mysql_db:
@@ -16,7 +16,7 @@
     login_user: "{{ dbuser }}"
     login_password: "{{ upassword }}"
     state: present
-  no_log: yes
+  no_log: true
 
 - name: Copier le fichier annuaire
   ansible.builtin.copy:
@@ -30,7 +30,7 @@
     target: "/tmp/annuaire.sql"
     login_user: "{{ dbuser }}"
     login_password: "{{ upassword }}"
-  no_log: yes
+  no_log: true
 
 - name: Copier la page PHP
   ansible.builtin.template:
