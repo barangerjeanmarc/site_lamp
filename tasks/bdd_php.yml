@@ -1,21 +1,21 @@
 ---
 - name: Installation de PHP et des extensions
-  package:
-    name: "{{liste_package_php}}"
+  ansible.builtin.package:
+    name: "{{ liste_package_php }}"
     state: present
 
 - name: Redemarrer Apache
-  service:
+  ansible.builtin.service:
     name: "{{ service_apache }}"
     state: restarted
 
-#- name: Installation de PHP et des extensions
-#  package:
-#    name:
-#      - php
-#      - php-pdo
-#      - php-mysql
-#      - php-soap
-#      - php-gd
-#    state: present
+ #- name: Installation de PHP et des extensions
+ #  ansible.builtin.package:
+ #    name:
+ #      - php
+ #      - php-pdo
+ #      - php-mysql
+ #      - php-soap
+ #      - php-gd
+ #    state: present
 ...

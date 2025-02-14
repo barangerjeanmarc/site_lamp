@@ -1,39 +1,39 @@
 ---
 - name: Créer l'utilisateur pour la base de données
-  mysql_user:
-    name: "{{dbuser}}"
-    password: "{{upassword}}"
+  community.mysql.mysql_user:
+    name: "{{ dbuser }}"
+    password: "{{ upassword }}"
     priv: '*.*:ALL'
     host: 'localhost'
     state: present
-    login_unix_socket: "{{mariadb_socket}}"
+    login_unix_socket: "{{ mariadb_socket }}"
     column_case_sensitive: false
   no_log: yes
 
 - name: Créer la base de données
-  mysql_db:
-    name: "{{dbname}}"
+  community.mysql.mysql_db:
+    name: "{{ dbname }}"
     login_user: "{{ dbuser }}"
     login_password: "{{ upassword }}"
     state: present
   no_log: yes
 
 - name: Copier le fichier annuaire
-  copy:
+  ansible.builtin.copy:
     src: annuaire.sql
     dest: /tmp/annuaire.sql
 
 - name: Importer les données
-  mysql_db: 
-    name: "{{dbname}}" 
-    state: "import" 
+  community.mysql.mysql_db:
+    name: "{{ dbname }}"
+    state: "import"
     target: "/tmp/annuaire.sql"
     login_user: "{{ dbuser }}"
     login_password: "{{ upassword }}"
-  no_log: yes 
+  no_log: yes
 
 - name: Copier la page PHP
-  template:
+  ansible.builtin.template:
     src: page.php
     dest: /var/www/html/page.php
   notify: Redemarrer Apache

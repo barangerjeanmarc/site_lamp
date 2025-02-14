@@ -1,5 +1,4 @@
 ---
-# tasks file for site_lamp
 - name: Inclure les variables ubuntu
   include_vars: ubuntu_vars.yml
   when: ansible_distribution|lower == 'ubuntu'

@@ -1,12 +1,12 @@
 ---
 - name: Installer MariaDB
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   loop: "{{ liste_package_mariadb }}"
 
 - name: Démarrer MariaDB
-  service:
+  ansible.builtin.service:
     name: mariadb
     state: started
     enabled: true
