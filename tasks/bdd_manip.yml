@@ -22,6 +22,7 @@
   ansible.builtin.copy:
     src: annuaire.sql
     dest: /tmp/annuaire.sql
+    mode: 664
 
 - name: Importer les données
   community.mysql.mysql_db:
@@ -36,5 +37,6 @@
   ansible.builtin.template:
     src: page.php
     dest: /var/www/html/page.php
+    mode: 664
   notify: Redemarrer Apache
 ...
