@@ -1,16 +1,16 @@
 ---
 - name: Inclure les variables ubuntu
   ansible.builtin.include_vars: ubuntu_vars.yml
-  when: ansible_distribution|lower == 'ubuntu'
+  when: ansible_facts.distribution|lower == 'ubuntu'
 - name: Inclure les variables debian
   ansible.builtin.include_vars: debian_vars.yml
-  when: ansible_distribution|lower == 'debian'
+  when: ansible_facts.distribution|lower == 'debian'
 - name: Inclure les variables centos
   ansible.builtin.include_vars: centos_vars.yml
-  when: ansible_distribution|lower == 'centos'
+  when: ansible_facts.distribution|lower == 'centos'
 - name: Inclure les variables rocky
   ansible.builtin.include_vars: rocky_vars.yml
-  when: ansible_distribution|lower == 'rocky'
+  when: ansible_facts.distribution|lower == 'rocky'
 - name: Installer MariaDB
   ansible.builtin.import_tasks: bdd_install.yml
   notify: Redemarrer Apache
