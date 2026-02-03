@@ -3,8 +3,8 @@
   community.mysql.mysql_user:
     name: "{{ dbuser }}"
     password: "{{ upassword }}"
-    priv: '*.*:ALL'
-    host: 'localhost'
+    priv: "*.*:ALL"
+    host: "localhost"
     state: present
     login_unix_socket: "{{ mariadb_socket }}"
     column_case_sensitive: false
@@ -20,8 +20,8 @@
 
 - name: Copier le fichier annuaire
   ansible.builtin.copy:
-    src: annuaire.sql
-    dest: /tmp/annuaire.sql
+    src: "annuaire.sql"
+    dest: "/tmp/annuaire.sql"
     mode: "00664"
 
 - name: Importer les données
@@ -35,8 +35,8 @@
 
 - name: Copier la page PHP
   ansible.builtin.template:
-    src: page.php
-    dest: /var/www/html/page.php
+    src: "page.php"
+    dest: "/var/www/html/page.php"
     mode: "00664"
   notify: Redemarrer Apache
 ...
