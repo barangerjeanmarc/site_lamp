@@ -1,6 +1,6 @@
 ---
 - name: Créer l'utilisateur pour la base de données
-  community.mysql.mysql_user:
+  ansible.mysql.mysql_user:
     name: "{{ dbuser }}"
     password: "{{ upassword }}"
     priv: "*.*:ALL"
@@ -11,7 +11,7 @@
   no_log: true
 
 - name: Créer la base de données
-  community.mysql.mysql_db:
+  ansible.mysql.mysql_db:
     name: "{{ dbname }}"
     login_user: "{{ dbuser }}"
     login_password: "{{ upassword }}"
@@ -25,7 +25,7 @@
     mode: "00664"
 
 - name: Importer les données
-  community.mysql.mysql_db:
+  ansible.mysql.mysql_db:
     name: "{{ dbname }}"
     state: "import"
     target: "/tmp/annuaire.sql"
